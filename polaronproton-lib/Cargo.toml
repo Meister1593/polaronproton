@@ -1,0 +1,13 @@
+[package]
+name = "polaronproton-lib"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+simple_xml_serialize = "0.3.0"
+home = "0.5.3"
+
+[dev-dependencies]
+assert_matches = "1.5.0"

@@ -1,0 +1,98 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'polaronproton-lib'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=polaronproton-lib"
+                ],
+                "filter": {
+                    "name": "polaronproton-lib",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'polaronproton-cli'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=polaronproton-cli",
+                    "--package=polaronproton-cli"
+                ],
+                "filter": {
+                    "name": "polaronproton-cli",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'polaronproton-cli'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=polaronproton-cli",
+                    "--package=polaronproton-cli"
+                ],
+                "filter": {
+                    "name": "polaronproton-cli",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'polaronproton-gui'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=polaronproton-gui",
+                    "--package=polaronproton-gui"
+                ],
+                "filter": {
+                    "name": "polaronproton-gui",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'polaronproton-gui'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=polaronproton-gui",
+                    "--package=polaronproton-gui"
+                ],
+                "filter": {
+                    "name": "polaronproton-gui",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

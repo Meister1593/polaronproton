@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "polaronproton-lib",
+    "polaronproton-cli",
+    "polaronproton-gui"
+]

@@ -1,0 +1,13 @@
+[package]
+name = "polaronproton-gui"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.gtk]
+git = "https://github.com/gtk-rs/gtk4-rs.git"
+package = "gtk4"
+
+[dependencies]
+polaronproton-lib = {path = "../polaronproton-lib"}
