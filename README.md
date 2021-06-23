@@ -3,6 +3,8 @@ This is a simple program to make symlinks in steam compatdata folder.
 Primary use is to symlink one prefix to another, in order to save space and use single superprefix for every game.
 This way, you also don't need to reinstall every single dependency (.net, fonts, dx) each time you try to use proton.
 
+ArchLinux [AUR page](https://aur.archlinux.org/packages/polaronproton-git/)
+
 ##### Roadmap:
 
  - [x] Basic linking support in library
