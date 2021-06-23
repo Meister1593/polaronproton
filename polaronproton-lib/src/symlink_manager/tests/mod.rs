@@ -9,7 +9,7 @@ pub fn link_test() {
 
     create_appid_pfx_path(appid_1).unwrap();
 
-    link_appids(appid_1, appid_2).unwrap();
+    link_appids(appid_1, appid_2);
 
     let entries = fs::read_dir(format!(
         "{}/{}",
