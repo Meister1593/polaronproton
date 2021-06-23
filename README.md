@@ -6,7 +6,7 @@ This way, you also don't need to reinstall every single dependency (.net, fonts,
 ##### Roadmap:
 
  - [x] Basic linking support in library
- - [ ] CLI interface
+ - [x] CLI interface (Usable, but WIP)
  - [ ] Ability to link games by it's name, not just appid (steam web api)
  - [ ] Ability to make superprefix with different name (instead of u32 -> string names)
  - [ ] Store links configuration somewhere for easy linking (by aliases) later
