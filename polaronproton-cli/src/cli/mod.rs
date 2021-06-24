@@ -51,7 +51,7 @@ impl ArgumentParse for CliParser {
             Argument::Linking => {
                 let appid_1 = args[1].parse::<u32>().unwrap();
                 let appid_2 = args[2].parse::<u32>().unwrap();
-                let result = symlink_manager::link_appids(appid_1, appid_2);
+                let result = symlink_manager::link_appids(appid_1, appid_2, &Option::None);
                 if result.is_backup_created {
                     println!("Created backup for {} appid pfx", appid_2);
                 }

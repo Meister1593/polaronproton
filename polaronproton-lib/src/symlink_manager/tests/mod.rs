@@ -1,34 +1,38 @@
+use std::u32;
+
+use tempfile::TempDir;
+
 use crate::symlink_manager::*;
-use std::matches;
-use std::{fs, io, u32};
 
 #[test]
 fn link_appids_test() {
+    let temp_dir = TempDir::new().unwrap();
+    let temp_dir_some_path = Some(temp_dir.path().display().to_string());
+
     let appid_1: u32 = 0;
     let appid_2: u32 = 1;
+    create_appid_pfx_path(appid_1, &temp_dir_some_path).unwrap();
 
-    create_appid_pfx_path(appid_1).unwrap();
-
-    link_appids(appid_1, appid_2);
-
-    let entries = fs::read_dir(format!(
-        "{}/{}",
-        get_steam_compatdata_path().unwrap(),
-        appid_2
-    ))
-    .unwrap()
-    .map(|res| res.map(|e| e.path()))
-    .collect::<Result<Vec<_>, io::Error>>()
-    .unwrap();
-
-    let appid_2_pfx_path_pos = entries.iter().position(|entry| entry.ends_with("pfx"));
-    assert!(matches!(appid_2_pfx_path_pos, Some(_)));
-    remove_appid_path(appid_1).unwrap();
-    remove_appid_path(appid_2).unwrap();
+    link_appids(appid_1, appid_2, &temp_dir_some_path);
+    // std::thread::sleep(Duration::from_millis(1000));
+    let appid_2_path = get_appid_pfx_path(appid_2, &temp_dir_some_path).unwrap();
+    let appid_2_path_exists = Path::new(&appid_2_path).exists();
+    assert!(appid_2_path_exists);
 }
 
 #[test]
-fn create_appid_backup_if_needed_test(){
-    let appid: u32 = 0;
-    
+fn create_appid_backup_if_needed_test() {
+    let temp_dir = TempDir::new().unwrap();
+    let temp_dir_some_path = Some(temp_dir.path().display().to_string());
+
+    let appid: u32 = 2;
+    let appid_backup_path = format!(
+        "{}.backup",
+        get_appid_pfx_path(appid, &temp_dir_some_path).unwrap()
+    );
+    create_appid_pfx_path(appid, &temp_dir_some_path).unwrap();
+
+    create_appid_backup_if_needed(appid, &temp_dir_some_path).unwrap();
+    let appid_backup_exists = Path::new(&appid_backup_path).exists();
+    assert!(appid_backup_exists);
 }
