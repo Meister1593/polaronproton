@@ -9,7 +9,7 @@ ArchLinux [AUR page](https://aur.archlinux.org/packages/polaronproton-git/)
 
  - [x] Basic linking support in library
  - [x] CLI interface (Usable, but WIP)
- - [ ] Make backups for link folder if it exists already (preventing link folder to be deleted)
+ - [x] Make backups for link folder if it exists already (preventing link folder to be deleted)
  - [ ] Ability to link games by it's name, not just appid (steam web api)
  - [ ] Ability to make superprefix with different name (instead of u32 -> string names)
  - [ ] Store links configuration somewhere for easy linking (by aliases) later
