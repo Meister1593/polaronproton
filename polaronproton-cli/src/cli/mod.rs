@@ -45,15 +45,18 @@ impl ArgumentParse for CliParser {
         match self.parse_type(&args) {
             Argument::Help => {
                 println!("Usage: polaronproton [OPTION]... [APPID_1] [APPID_2]");
-                println!("Make symlinks in proton compatdata folder, appid_1 is source folder and appid_2 is linked folder\n");
+                println!("Make symlinks in proton compatdata folder, appid_1 is source folder and appid_2 is linking folder\n");
                 println!("\t-h\t--help\tShow this help.");
             }
             Argument::Linking => {
                 let appid_1 = args[1].parse::<u32>().unwrap();
                 let appid_2 = args[2].parse::<u32>().unwrap();
                 let result = symlink_manager::link_appids(appid_1, appid_2);
+                if result.is_backup_created {
+                    println!("Created backup for {} appid pfx", appid_2);
+                }
                 println!(
-                    "Linked appid 1 with path {} to  appid 2 with path {}",
+                    "Linked appid 2 with path '{}'\nTo appid 1 with path '{}'",
                     result.appid_1_path, result.appid_2_path
                 );
             }

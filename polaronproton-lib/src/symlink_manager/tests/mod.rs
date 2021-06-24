@@ -3,7 +3,7 @@ use std::matches;
 use std::{fs, io, u32};
 
 #[test]
-pub fn link_test() {
+fn link_appids_test() {
     let appid_1: u32 = 0;
     let appid_2: u32 = 1;
 
@@ -25,4 +25,10 @@ pub fn link_test() {
     assert!(matches!(appid_2_pfx_path_pos, Some(_)));
     remove_appid_path(appid_1).unwrap();
     remove_appid_path(appid_2).unwrap();
+}
+
+#[test]
+fn create_appid_backup_if_needed_test(){
+    let appid: u32 = 0;
+    
 }
