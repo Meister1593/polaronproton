@@ -56,7 +56,7 @@ impl ArgumentParse for CliParser {
                     println!("Created backup for {} appid pfx", appid_2);
                 }
                 println!(
-                    "Linked appid 2 with path '{}'\nTo appid 1 with path '{}'",
+                    "Linked appid 1 with path '{}'\nTo appid 2 with path '{}'",
                     result.appid_1_path, result.appid_2_path
                 );
             }
